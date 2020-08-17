@@ -1,0 +1,20 @@
+#top {
+    clear: both;
+}
+
+#busy {
+    float: left;
+    width: 300px;
+}
+
+#button {
+    float: left;
+}
+
+#tasks {
+    float: left;
+}
+
+#timetable {
+    clear: both;
+}

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Schedule Maker
+    </title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+</head>
+
+<body>
+    <div id="top">
+        <div id="busy">
+            <h2>
+                Time Busy
+            </h2>
+            <table>
+                <tr>
+                    <th>
+                        Work
+                    </th>
+                    <th>
+                        Time
+                    </th>
+                    <th>
+                        Frequency
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Eg. Sleep
+                    </td>
+                    <td>
+                        Eg. 21:00 - 6:00
+                    </td>
+                    <td>
+                        Eg. Daily
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Eg. Formula 1
+                    </td>
+                    <td>
+                        Eg. 18:00 - 20:00
+                    </td>
+                    <td>
+                        Eg. Sunday
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="workinput">
+                    </td>
+                    <td>
+                        <input type="text" id="timeinput">
+                    </td>
+                    <td>
+                        <input type="text" id="timeinput">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="button">
+            <button id="thebutton">
+                Make Schedule!
+            </button>
+        </div>
+        <div id="tasks">
+            <h2>Tasks</h2>
+            <table>
+                <tr>
+                    <th>
+                        Task
+                    </th>
+                    <th>
+                        Time per session(in hours)
+                    </th>
+                    <th>
+                        Daily sessions
+                    </th>
+                    <th>
+                        Spaced?
+                    </th>
+                    <th>
+                        Frequency required (days)
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Eg. Study
+                    </td>
+                    <td>
+                        Eg. 2
+                    </td>
+                    <td>
+                        Eg. 1
+                    </td>
+                    <td>
+                        Eg. &#9744
+                    </td>
+                    <td>
+                        Eg. 5
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Eg. Plant Trees
+                    </td>
+                    <td>
+                        Eg. 0.5
+                    </td>
+                    <td>
+                        Eg. 2
+                    </td>
+                    <td>
+                        Eg. &#9745
+                    </td>
+                    <td>
+                        Eg. 2
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="taskname">
+                    </td>
+                    <td>
+                        <input type="text" id="tasktime">
+                    </td>
+                    <td>
+                        <input type="text" id="taskdaily">
+                    </td>
+                    <td>
+                        <input type="checkbox" id="taskspaced">
+                    </td>
+                    <td>
+                        <input type="text" id="taskfrequency">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="timetable">
+        <table>
+            <tr>
+                <th>
+                    Time
+                </th>
+                <th>
+                    Monday
+                </th>
+                <th>
+                    Tuesday
+                </th>
+                <th>
+                    Wednesday
+                </th>
+                <th>
+                    Friday
+                </th>
+                <th>
+                    Saturday
+                </th>
+                <th>
+                    Sunday
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    7:00 - 7:30
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <script scr="Script.js"></script>
+</body>
+
+</html>
