@@ -1,18 +1,37 @@
+#parent {
+    background-color: #F0FF8C;
+}
+
+#header {
+    align-content: center;
+    width: 100%;
+    background-color: grey;
+}
+
+body {
+    background-color: black;
+}
+
 #top {
     clear: both;
+    width: 1000px;
+    border: 2px solid black;
 }
 
 #busy {
     float: left;
-    width: 300px;
+    width: 450px;
+    border-width: 2px;
 }
 
 #button {
-    float: left;
+    float: center;
+    width: 50px;
 }
 
 #tasks {
-    float: left;
+    float: right;
+    width: 450px;
 }
 
 #timetable {
