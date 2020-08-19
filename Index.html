@@ -7,12 +7,15 @@
     </title>
     <link rel="stylesheet" type="text/css" href="Style.css">
     <script type="text/javascript" src="Script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="favicon.jpg">
 </head>
 
 <body>
     <div id="parent">
         <div id="header">
             Automatic Schedule Maker
+
         </div>
         <div id="top">
             <div id="busy">
@@ -25,7 +28,10 @@
                             Work
                         </th>
                         <th>
-                            Time
+                            From
+                        </th>
+                        <th>
+                            To
                         </th>
                         <th>
                             Frequency
@@ -36,10 +42,13 @@
                             Eg. Sleep
                         </td>
                         <td>
-                            Eg. 21:00 - 6:00
+                            21:00
                         </td>
                         <td>
-                            Eg. Daily
+                            9:00
+                        </td>
+                        <td>
+                            Daily
                         </td>
                     </tr>
                     <tr>
@@ -47,10 +56,13 @@
                             Eg. Formula 1
                         </td>
                         <td>
-                            Eg. 18:00 - 20:00
+                            18:00
                         </td>
                         <td>
-                            Eg. Sunday
+                            20:00
+                        </td>
+                        <td>
+                            Sunday
                         </td>
                     </tr>
                     <tr>
@@ -58,23 +70,21 @@
                             <input type="text" id="workinput">
                         </td>
                         <td>
-                            <input type="text" id="timeinput">
+                            <input type="text" id="timeinputfrom">
+                        </td>
+                        <td>
+                            <input type="text" id="timeinputto">
                         </td>
                         <td>
                             <input type="text" id="freqinput">
                         </td>
                     </tr>
                 </table>
-                <button id="submitbusy" onclick="addbusy()">
+                <button id="submitbusy" onclick="addbusy()" class="notfinal">
                     Add
                 </button>
-                <button id="busyremove" onclick="removebusy()">
+                <button id="busyremove" onclick="removebusy()" class="notfinal">
                     Remove
-                </button>
-            </div>
-            <div id="button">
-                <button id="thebutton">
-                    Make Schedule!
                 </button>
             </div>
             <div id="tasks">
@@ -85,7 +95,7 @@
                             Task
                         </th>
                         <th>
-                            Time per session(in hours)
+                            Session Time (hours)
                         </th>
                         <th>
                             Daily sessions
@@ -94,7 +104,7 @@
                             Spaced?
                         </th>
                         <th>
-                            Frequency required (days)
+                            Frequency (days)
                         </th>
                     </tr>
                     <tr>
@@ -102,16 +112,16 @@
                             Eg. Study
                         </td>
                         <td>
-                            Eg. 2
+                            2
                         </td>
                         <td>
-                            Eg. 1
+                            1
                         </td>
                         <td>
-                            Eg. &#9744
+                            &#9744
                         </td>
                         <td>
-                            Eg. 5
+                            5
                         </td>
                     </tr>
                     <tr>
@@ -119,16 +129,16 @@
                             Eg. Plant Trees
                         </td>
                         <td>
-                            Eg. 0.5
+                            0.5
                         </td>
                         <td>
-                            Eg. 2
+                            2
                         </td>
                         <td>
-                            Eg. &#9745
+                            &#9745
                         </td>
                         <td>
-                            Eg. 2
+                            2
                         </td>
                     </tr>
                     <tr>
@@ -149,13 +159,18 @@
                         </td>
                     </tr>
                 </table>
-                <button id="submittask" onclick="addtask()">
+                <button id="submittask" onclick="addtask()" class="notfinal">
                     Add
                 </button>
-                <button id="removetask" onclick="removetask()">
+                <button id="removetask" onclick="removetask()" class="notfinal">
                     Remove
                 </button>
             </div>
+        </div>
+        <div id="button">
+            <button id="thebutton">
+                Make Schedule!
+            </button>
         </div>
         <div id="timetable">
             <table>
@@ -171,6 +186,9 @@
                     </th>
                     <th>
                         Wednesday
+                    </th>
+                    <th>
+                        Thursday
                     </th>
                     <th>
                         Friday
