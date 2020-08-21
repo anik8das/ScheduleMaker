@@ -35,7 +35,6 @@ function addtask() {
     var name = document.getElementById("taskname").value;
     var time = document.getElementById("tasktime").value;
     var daily = document.getElementById("taskdaily").value;
-    var spaced = document.getElementById("taskspaced");
     var freq = document.getElementById("taskfrequency").value;
     var tasktable = document.getElementById("tasktable");
     var row = tasktable.insertRow(tasknum);
@@ -43,21 +42,14 @@ function addtask() {
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
     cell1.innerHTML = name;
     cell2.innerHTML = time;
     cell3.innerHTML = daily;
-    if (spaced.checked == true) {
-        cell4.innerHTML = "&#9745";
-    } else {
-        cell4.innerHTML = "&#9744"
-    }
-    cell5.innerHTML = freq;
-    task.push([name, time, daily, spaced, freq]);
+    cell4.innerHTML = freq;
+    task.push([name, time, daily, freq]);
     document.getElementById("taskname").value = "";
     document.getElementById("tasktime").value = "";
     document.getElementById("taskdaily").value = "";
-    spaced.checked = false;
     document.getElementById("taskfrequency").value = "";
     tasknum++;
     console.log(task);

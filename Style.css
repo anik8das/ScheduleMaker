@@ -4,7 +4,6 @@
     font-size: 50px;
     font-family: 'Alata', sans-serif;
     text-align: left;
-    padding-left: 12px;
     margin-left: 0px;
 }
 
@@ -18,14 +17,11 @@ body {
     width: 100%;
 }
 
-table {
-    width: 100%;
-}
-
 #busy {
     float: left;
     width: 48%;
     text-align: center;
+    align-content: center;
 }
 
 .notfinal {
@@ -49,13 +45,15 @@ table {
 #busytable {
     font-family: 'Alata', sans-serif;
     border-collapse: collapse;
-    width: 40%;
+    table-layout: fixed;
+    width: 98%;
 }
 
 #tasktable {
     font-family: 'Alata', sans-serif;
     border-collapse: collapse;
-    width: 40%;
+    table-layout: fixed;
+    width: 98%;
 }
 
 th,
@@ -105,11 +103,26 @@ tr:last-child {
 }
 
 #tasks {
-    float: left;
+    float: right;
     text-align: center;
-    width: 35%;
+    width: 48%;
+    align-content: center;
+}
+
+#timetablediv {
+    clear: both;
+    width: 100%;
 }
 
 #timetable {
-    clear: both;
+    table-layout: fixed;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+input {
+    width: 90%;
 }
