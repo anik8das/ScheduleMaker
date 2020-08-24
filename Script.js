@@ -9,6 +9,14 @@ var task = [];
 var busynum = 3;
 var tasknum = 3;
 var busy = [];
+var latest;
+var montot;
+var tuetot;
+var wedtot;
+var thutot;
+var fritot;
+var sattot;
+var suntot;
 
 function sortarr(a, b) {
     return a[0] - b[0];
@@ -41,21 +49,15 @@ function addbusy() {
     document.getElementById('timeinputto').value = '';
     document.getElementById('freqinput').value = '';
     console.log(freq.toUpperCase());
+    latest = freq;
     if (freq.toUpperCase() == "DAILY") {
-        monbusy.push([timefrom, timeto]);
-        monbusy.sort(sortarr);
-        tuebusy.push([timefrom, timeto]);
-        tuebusy.sort(sortarr);
-        wedbusy.push([timefrom, timeto]);
-        wedbusy.sort(sortarr);
-        thubusy.push([timefrom, timeto]);
-        thubusy.sort(sortarr);
-        fribusy.push([timefrom, timeto]);
-        fribusy.sort(sortarr);
-        satbusy.push([timefrom, timeto]);
-        satbusy.sort(sortarr);
-        sunbusy.push([timefrom, timeto]);
-        sunbusy.sort(sortarr);
+        monbusy.push([timefrom, timeto, name]);
+        tuebusy.push([timefrom, timeto, name]);
+        wedbusy.push([timefrom, timeto, name]);
+        thubusy.push([timefrom, timeto, name]);
+        fribusy.push([timefrom, timeto, name]);
+        satbusy.push([timefrom, timeto, name]);
+        sunbusy.push([timefrom, timeto, name]);
     } else {
         freq = freq.split(",");
         console.log("freq:", freq);
@@ -65,45 +67,38 @@ function addbusy() {
             switch (item.toUpperCase()) {
                 case "MONDAY":
                     {
-                        monbusy.push([timefrom, timeto]);
-                        monbusy.sort(sortarr);
+                        monbusy.push([timefrom, timeto, name]);
                         break;
 
                     }
                 case "TUESDAY":
                     {
-                        tuebusy.push([timefrom, timeto]);
-                        tuebusy.sort(sortarr);
+                        tuebusy.push([timefrom, timeto, name]);
                         break;
                     }
                 case "WEDNESDAY":
                     {
-                        wedbusy.push([timefrom, timeto]);
-                        wedbusy.sort(sortarr);
+                        wedbusy.push([timefrom, timeto, name]);
                         break;
                     }
                 case "THURSDAY":
                     {
-                        thubusy.push([timefrom, timeto]);
-                        thubusy.sort(sortarr);
+                        thubusy.push([timefrom, timeto, name]);
                         break;
                     }
                 case "FRIDAY":
                     {
-                        fribusy.push([timefrom, timeto]);
-                        fribusy.sort(sortarr);
+                        fribusy.push([timefrom, timeto, name]);
                         break;
                     }
                 case "SATURDAY":
                     {
-                        satbusy.push([timefrom, timeto]);
-                        satbusy.sort(sortarr);
+                        satbusy.push([timefrom, timeto, name]);
                         break;
                     }
                 case "SUNDAY":
                     {
-                        sunbusy.push([timefrom, timeto]);
-                        sunbusy.sort(sortarr);
+                        sunbusy.push([timefrom, timeto, name]);
                         break;
                     }
             }
@@ -147,9 +142,94 @@ function removebusy() {
     document.getElementById("busytable").deleteRow(busynum - 1);
     busynum--;
     busy.pop();
-    console.log(busy);
+
+    var freq = latest;
+    if (freq.toUpperCase() == "DAILY") {
+        monbusy.pop();
+        tuebusy.pop();
+        wedbusy.pop();
+        thubusy.pop();
+        fribusy.pop();
+        satbusy.pop();
+        sunbusy.pop();
+    } else {
+        freq = freq.split(",");
+        console.log("freq:", freq);
+        for (let item of freq) {
+            item = item.trim();
+            console.log("item:", item);
+            switch (item.toUpperCase()) {
+                case "MONDAY":
+                    {
+                        monbusy.pop();
+                        break;
+
+                    }
+                case "TUESDAY":
+                    {
+                        tuebusy.pop();
+                        break;
+                    }
+                case "WEDNESDAY":
+                    {
+                        wedbusy.pop();
+                        break;
+                    }
+                case "THURSDAY":
+                    {
+                        thubusy.pop();
+                        break;
+                    }
+                case "FRIDAY":
+                    {
+                        fribusy.pop();
+                        break;
+                    }
+                case "SATURDAY":
+                    {
+                        satbusy.pop();
+                        break;
+                    }
+                case "SUNDAY":
+                    {
+                        sunbusy.pop();
+                        break;
+                    }
+            }
+        }
+    }
 }
 
 function makeschedule() {
+    monbusy.sort(sortarr);
+    tuebusy.sort(sortarr);
+    wedbusy.sort(sortarr);
+    thubusy.sort(sortarr);
+    fribusy.sort(sortarr);
+    satbusy.sort(sortarr);
+    sunbusy.sort(sortarr);
+    for (let item of monbusy) {
+        montot += monbusy[1] - monbusy[0];
+    }
+    for (let item of tuebusy) {
+        tuetot += tuebusy[1] - tuebusy[0];
+    }
+    for (let item of wedbusy) {
+        wedtot += wedbusy[1] - wedbusy[0];
+    }
+    for (let item of thubusy) {
+        thutot += thubusy[1] - thubusy[0];
+    }
+    for (let item of fribusy) {
+        fritot += fribusy[1] - fribusy[0];
+    }
+    for (let item of satbusy) {
+        sattot += satbusy[1] - satbusy[0];
+    }
+    for (let item of sunbusy) {
+        suntot += sunbusy[1] - sunbusy[0];
+    }
     console.log(monbusy);
+    console.log(tuebusy);
+
 }
