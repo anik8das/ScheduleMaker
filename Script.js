@@ -10,13 +10,13 @@ var busynum = 3;
 var tasknum = 3;
 var busy = [];
 var latest;
-var montot;
-var tuetot;
-var wedtot;
-var thutot;
-var fritot;
-var sattot;
-var suntot;
+var montot = 0;
+var tuetot = 0;
+var wedtot = 0;
+var thutot = 0;
+var fritot = 0;
+var sattot = 0;
+var suntot = 0;
 
 function sortarr(a, b) {
     return a[0] - b[0];
@@ -201,6 +201,13 @@ function removebusy() {
 }
 
 function makeschedule() {
+    montot = 0;
+    tuetot = 0;
+    wedtot = 0;
+    thutot = 0;
+    fritot = 0;
+    sattot = 0;
+    suntot = 0;
     monbusy.sort(sortarr);
     tuebusy.sort(sortarr);
     wedbusy.sort(sortarr);
@@ -209,10 +216,10 @@ function makeschedule() {
     satbusy.sort(sortarr);
     sunbusy.sort(sortarr);
     for (let item of monbusy) {
-        montot += monbusy[1] - monbusy[0];
+        montot += parseInt(item[1]) - parseInt(item[0]);
     }
     for (let item of tuebusy) {
-        tuetot += tuebusy[1] - tuebusy[0];
+        tuetot += parseInt(tuebusy[1]) - parseInt(tuebusy[0]);
     }
     for (let item of wedbusy) {
         wedtot += wedbusy[1] - wedbusy[0];
@@ -229,7 +236,6 @@ function makeschedule() {
     for (let item of sunbusy) {
         suntot += sunbusy[1] - sunbusy[0];
     }
-    console.log(monbusy);
+    console.log(montot);
     console.log(tuebusy);
-
 }
