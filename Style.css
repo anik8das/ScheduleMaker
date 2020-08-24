@@ -1,36 +1,60 @@
 #header {
     width: 100%;
-    background-color: #EBEBEB;
-    font-size: 50px;
-    font-family: 'Alata', sans-serif;
-    text-align: left;
-    padding-left: 12px;
+    font-size: 40px;
+    text-align: center;
+    align-content: center;
     margin-left: 0px;
+    margin-top: 90px;
+    margin-bottom: 0px;
+}
+
+#texti {
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #00B9CD;
+    text-align: center;
+    line-height: 95%;
+    font-size: 35px;
+    width: 93.5px;
+    height: 103px;
+    text-align: center;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#texti:hover {
+    background-color: white;
+    color: #00B9CD;
 }
 
 body {
-    background-color: #ECFFAA;
+    background-color: white;
     font-family: 'Alata', sans-serif;
+    width: 1145px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #top {
     clear: both;
     width: 100%;
-}
-
-table {
-    width: 100%;
+    margin-top: 2px;
+    padding-top: 1px;
 }
 
 #busy {
     float: left;
-    width: 48%;
+    width: 49%;
     text-align: center;
+    align-content: center;
+    color: #00B9CD;
+    margin-left: 10px;
 }
 
 .notfinal {
     margin: 10px;
-    background-color: black;
+    background-color: #00B9CD;
     border: none;
     color: white;
     padding: 3px 7px 5px 7px;
@@ -42,41 +66,44 @@ table {
 }
 
 .notfinal:hover {
-    color: black;
-    background-color: white;
+    background-color: #008DFF;
 }
 
 #busytable {
     font-family: 'Alata', sans-serif;
     border-collapse: collapse;
-    width: 40%;
+    table-layout: fixed;
+    width: 98%;
+    color: #00B9CD;
 }
 
 #tasktable {
     font-family: 'Alata', sans-serif;
     border-collapse: collapse;
-    width: 40%;
+    table-layout: fixed;
+    width: 98%;
+    color: #00B9CD;
 }
 
 th,
 td {
-    border: 1px solid black;
+    border: 1px solid #008DFF;
     padding: 8px;
 }
 
 tr {
     background-color: #ECECEC;
-    color: black;
+    color: #00B9CD;
 }
 
 tr:nth-child(even) {
-    background-color: black;
+    background-color: #00B9CD;
     color: white;
 }
 
 tr:last-child {
     background-color: white;
-    color: black;
+    color: #00B9CD;
 }
 
 #button {
@@ -88,7 +115,7 @@ tr:last-child {
 }
 
 #thebutton {
-    background-color: black;
+    background-color: #00B9CD;
     border: none;
     color: white;
     padding: 3px 7px 5px 7px;
@@ -97,19 +124,41 @@ tr:last-child {
     font-size: 20px;
     font-family: 'Alata', sans-serif;
     border-radius: 7px;
+    color: white;
+    margin-right: 27px;
 }
 
 #thebutton:hover {
-    color: black;
-    background-color: white;
+    background-color: #008DFF;
 }
 
 #tasks {
-    float: left;
+    float: right;
     text-align: center;
-    width: 35%;
+    width: 49%;
+    align-content: center;
+    color: #00B9CD;
+}
+
+#timetablediv {
+    clear: both;
+    width: 100%;
+    color: #008DFF;
 }
 
 #timetable {
-    clear: both;
+    table-layout: fixed;
+    width: 100%;
+    color: #008DFF;
+}
+
+table {
+    width: 100%;
+}
+
+input {
+    width: 90%;
+    font-family: 'Alata', sans-serif;
+    color: #00B9CD;
+    font-size: 15px;
 }

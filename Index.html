@@ -3,19 +3,20 @@
 
 <head>
     <title>
-        Schedule Maker
+        Scheduler
     </title>
     <link rel="stylesheet" type="text/css" href="Style.css">
     <script type="text/javascript" src="Script.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="favicon.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Noto+Sans+JP&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="logo.PNG">
 </head>
 
 <body>
     <div id="parent">
         <div id="header">
-            Automatic Schedule Maker
-
+            <div id="texti">
+                S C H <br> E D U <br> L E R
+            </div>
         </div>
         <div id="top">
             <div id="busy">
@@ -95,16 +96,13 @@
                             Task
                         </th>
                         <th>
-                            Session Time (hours)
+                            Session (hours)
                         </th>
                         <th>
                             Daily sessions
                         </th>
                         <th>
-                            Spaced?
-                        </th>
-                        <th>
-                            Frequency (days)
+                            Freq (days)
                         </th>
                     </tr>
                     <tr>
@@ -116,9 +114,6 @@
                         </td>
                         <td>
                             1
-                        </td>
-                        <td>
-                            &#9744
                         </td>
                         <td>
                             5
@@ -135,9 +130,6 @@
                             2
                         </td>
                         <td>
-                            &#9745
-                        </td>
-                        <td>
                             2
                         </td>
                     </tr>
@@ -150,9 +142,6 @@
                         </td>
                         <td>
                             <input type="text" id="taskdaily">
-                        </td>
-                        <td>
-                            <input type="checkbox" value="spaced" id="taskspaced">
                         </td>
                         <td>
                             <input type="text" id="taskfrequency">
@@ -168,12 +157,12 @@
             </div>
         </div>
         <div id="button">
-            <button id="thebutton">
+            <button id="thebutton" onclick="makeschedule()">
                 Make Schedule!
             </button>
         </div>
-        <div id="timetable">
-            <table>
+        <div id="timetablediv">
+            <table id="timetable">
                 <tr>
                     <th>
                         Time
