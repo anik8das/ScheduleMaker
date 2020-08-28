@@ -17,10 +17,27 @@ var thutot = 0;
 var fritot = 0;
 var sattot = 0;
 var suntot = 0;
+var min;
+var minday;
+var i, j, k;
+var tasktime;
+var temp, temp1;
 
 function sortarr(a, b) {
     return a[0] - b[0];
 }
+
+function timecompare(a, b) {
+    var td = 0;
+    td += 60 * (Math.floor(a / 100) - Math.floor(b / 100));
+    if ((a % 100) >= (b % 100)) {
+        td += (a % 100 - b % 100);
+    } else {
+        td -= (b % 100 - a % 100);
+    }
+    return td;
+}
+
 
 function addbusy() {
     var name = document.getElementById("workinput").value;
@@ -132,69 +149,73 @@ function addtask() {
 }
 
 function removetask() {
-    document.getElementById("tasktable").deleteRow(tasknum - 1);
-    tasknum--;
-    task.pop();
-    console.log(task);
+    if (tasknum != 3) {
+        document.getElementById("tasktable").deleteRow(tasknum - 1);
+        tasknum--;
+        task.pop();
+        console.log(task);
+    }
 }
 
 function removebusy() {
-    document.getElementById("busytable").deleteRow(busynum - 1);
-    busynum--;
-    busy.pop();
+    if (busynum != 3) {
+        document.getElementById("busytable").deleteRow(busynum - 1);
+        busynum--;
+        busy.pop();
 
-    var freq = latest;
-    if (freq.toUpperCase() == "DAILY") {
-        monbusy.pop();
-        tuebusy.pop();
-        wedbusy.pop();
-        thubusy.pop();
-        fribusy.pop();
-        satbusy.pop();
-        sunbusy.pop();
-    } else {
-        freq = freq.split(",");
-        console.log("freq:", freq);
-        for (let item of freq) {
-            item = item.trim();
-            console.log("item:", item);
-            switch (item.toUpperCase()) {
-                case "MONDAY":
-                    {
-                        monbusy.pop();
-                        break;
+        var freq = latest;
+        if (freq.toUpperCase() == "DAILY") {
+            monbusy.pop();
+            tuebusy.pop();
+            wedbusy.pop();
+            thubusy.pop();
+            fribusy.pop();
+            satbusy.pop();
+            sunbusy.pop();
+        } else {
+            freq = freq.split(",");
+            console.log("freq:", freq);
+            for (let item of freq) {
+                item = item.trim();
+                console.log("item:", item);
+                switch (item.toUpperCase()) {
+                    case "MONDAY":
+                        {
+                            monbusy.pop();
+                            break;
 
-                    }
-                case "TUESDAY":
-                    {
-                        tuebusy.pop();
-                        break;
-                    }
-                case "WEDNESDAY":
-                    {
-                        wedbusy.pop();
-                        break;
-                    }
-                case "THURSDAY":
-                    {
-                        thubusy.pop();
-                        break;
-                    }
-                case "FRIDAY":
-                    {
-                        fribusy.pop();
-                        break;
-                    }
-                case "SATURDAY":
-                    {
-                        satbusy.pop();
-                        break;
-                    }
-                case "SUNDAY":
-                    {
-                        sunbusy.pop();
-                        break;
-                    }
+                        }
+                    case "TUESDAY":
+                        {
+                            tuebusy.pop();
+                            break;
+                        }
+                    case "WEDNESDAY":
+                        {
+                            wedbusy.pop();
+                            break;
+                        }
+                    case "THURSDAY":
+                        {
+                            thubusy.pop();
+                            break;
+                        }
+                    case "FRIDAY":
+                        {
+                            fribusy.pop();
+                            break;
+                        }
+                    case "SATURDAY":
+                        {
+                            satbusy.pop();
+                            break;
+                        }
+                    case "SUNDAY":
+                        {
+                            sunbusy.pop();
+                            break;
+                        }
+                }
             }
         }
     }
@@ -215,27 +236,68 @@ function makeschedule() {
     fribusy.sort(sortarr);
     satbusy.sort(sortarr);
     sunbusy.sort(sortarr);
+
     for (let item of monbusy) {
         montot += parseInt(item[1]) - parseInt(item[0]);
     }
     for (let item of tuebusy) {
-        tuetot += parseInt(tuebusy[1]) - parseInt(tuebusy[0]);
+        tuetot += parseInt(item[1]) - parseInt(item[0]);
     }
     for (let item of wedbusy) {
-        wedtot += wedbusy[1] - wedbusy[0];
+        wedtot += parseInt(item[1]) - parseInt(item[0]);
     }
     for (let item of thubusy) {
-        thutot += thubusy[1] - thubusy[0];
+        thutot += parseInt(item[1]) - parseInt(item[0]);
     }
     for (let item of fribusy) {
-        fritot += fribusy[1] - fribusy[0];
+        fritot += parseInt(item[1]) - parseInt(item[0]);
     }
     for (let item of satbusy) {
-        sattot += satbusy[1] - satbusy[0];
+        sattot += parseInt(item[1]) - parseInt(item[0]);
     }
     for (let item of sunbusy) {
-        suntot += sunbusy[1] - sunbusy[0];
+        suntot += parseInt(item[1]) - parseInt(item[0]);
     }
-    console.log(montot);
-    console.log(tuebusy);
+    min = Math.min(montot, tuetot, wedtot, thutot, fritot, sattot, suntot);
+    if (min == montot) {
+        minday = "MONDAY";
+    } else if (min == tuetot) {
+        minday = "TUESDAY";
+    } else if (min == wedtot) {
+        minday = "WEDDAY";
+    } else if (min == thutot) {
+        minday = "THURSDAY";
+    } else if (min == fritot) {
+        minday = "FRIDAY";
+    } else if (min == sattot) {
+        minday = "SATURDAY";
+    } else {
+        minday = "SUNDAY";
+    }
+    for (let item of task) {
+        tasktime = item[1];
+        for (i = 0; i < item[3]; i++) {
+            min = Math.min(montot, tuetot, wedtot, thutot, fritot, sattot, suntot);
+            if (min == montot) {
+                minday = "MONDAY";
+                for (k = 0; k < item[2]; k++) {
+                    
+                }
+            } else if (min == tuetot) {
+                minday = "TUESDAY";
+            } else if (min == wedtot) {
+                minday = "WEDDAY";
+            } else if (min == thutot) {
+                minday = "THURSDAY";
+            } else if (min == fritot) {
+                minday = "FRIDAY";
+            } else if (min == sattot) {
+                minday = "SATURDAY";
+            } else {
+                minday = "SUNDAY";
+            }
+        }
+    }
+    console.log("min: ", minday);
+    console.log("Difference is ", timecompare(1855, 1254));
 }
